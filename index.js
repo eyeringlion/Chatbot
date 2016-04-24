@@ -13,12 +13,15 @@ app.use(bodyParser.json())
 
 // index
 app.get('/', function (req, res) {
+	console.log("i am a bot");
 	res.send('hello world i am a secret bot')
 })
 
 // for facebook verification
 app.get('/webhook/', function (req, res) {
+	console.log("get webhook");
 	if (req.query['hub.verify_token'] === 'my_voice_is_my_password_verify_me') {
+		console.log("verified token");
 		res.send(req.query['hub.challenge'])
 	}
 	res.send('Error, wrong token')
